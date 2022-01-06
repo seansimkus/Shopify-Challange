@@ -27,6 +27,7 @@ Code for question 2 is located in [DS-Challenge-Question2.sql](https://github.co
 Due to the average order value (AOV) being so high, our data is most likely affected by outliers, assuming that the previous user completed the calculations correctly. The high AOV is a strong indicator that the average was derived using the mean, thus heavily influenced by outliers.
 
 ```python
+#
 mean_order = store_df['order_amount'].mean()
 mean_items = store_df['total_items'].mean()
 print(f'The median average of the order is ${mean_order} with an average of {mean_items} items sold')
@@ -46,6 +47,22 @@ The mean average of the order is $3145.128 with a mean of 8.7872 items sold
   ![Scatter Plot](https://github.com/seansimkus/Shopify-Challenge/blob/main/scatterplot.jpeg "Scatter Plot")
 
   As mentioned previously, a weakness of using a mean calculation is that outliers can strongly influence it. A better way to evaluate this data would be to take the median of the `order_amount` as it is not as affected nearly as much by the outliers.
+
+  ```python
+  # Get the median of order_amount
+median_order = store_df['order_amount'].median()
+# Get the median of total_items
+median_items = store_df['total_items'].median()
+
+print(f'The median average of the order is ${median_order} with an median of {median_items} items sold')
+
+"""
+Returns:
+The median average of the order is $284.0 with an median of 2.0 items sold
+"""
+```
+
+The preferred method for this calculation should be to use the median, which is not affected by outliers. When using this method, the value comes out to $284, which seems more reasonable given the context.
 
 ---
 
