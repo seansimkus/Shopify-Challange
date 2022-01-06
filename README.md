@@ -46,7 +46,7 @@ The mean average of the order is $3145.128 with a mean of 8.7872 items sold
 
   ![Scatter Plot](https://github.com/seansimkus/Shopify-Challenge/blob/main/scatterplot.jpeg "Scatter Plot")
 
-  As mentioned previously, a weakness of using a mean calculation is that outliers can strongly influence it. A better way to evaluate this data would be to take the median of the `order_amount` as it is not as affected nearly as much by the outliers.
+  As mentioned previously, a weakness of using a mean calculation is that outliers can strongly influence it. As we can see from the graph above there is an outlier that it so high it greatly skews the results. A better way to evaluate this data would be to take the median of the `order_amount` as it is not as affected nearly as much by the outliers.
 
   ```python
   # Get the median of order_amount
@@ -62,7 +62,7 @@ The median average of the order is $284.0 with an median of 2.0 items sold
 """
 ```
 
-The preferred method for this calculation should be to use the median, which is not affected by outliers. When using this method, the value comes out to $284, which seems more reasonable given the context.
+When using this method, the value comes out to $284, which seems more reasonable given the context.
 
 ---
 
