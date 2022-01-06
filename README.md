@@ -11,7 +11,6 @@ Code for question 1 is located in [DS-Challenge-Question1.ipynb](https://github.
 
 Code for question 2 is located in [DS-Challenge-Question2.sql](https://github.com/seansimkus/Shopify-Challange/blob/main/DS-Challenge-Question2.sql)
 
-
 - [Question 1](#question-1)
   - [A) Think about what could be going wrong with our calculation](#a-think-about-what-could-be-going-wrong-with-our-calculation)
   - [B) What metric would you report for this dataset?](#b-what-metric-would-you-report-for-this-dataset)
@@ -22,8 +21,6 @@ Code for question 2 is located in [DS-Challenge-Question2.sql](https://github.co
   - [C) What product was ordered the most by customers in Germany?](#c-what-product-was-ordered-the-most-by-customers-in-germany)
 
 ## Question 1
-
-Code for Question 1 regarding the sneakershop is located in the file DS-Challenge-Question1.ipynb.  
 
 ### A) Think about what could be going wrong with our calculation
 
