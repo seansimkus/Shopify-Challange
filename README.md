@@ -5,7 +5,7 @@ Author: Sean Simkus
 
 Date: Jan 05, 2022
 
-This is my submission for Winter 2022 Data Science Intern Challenge.
+This repository is my submission for Winter 2022 Data Science Intern Challenge.
 
 Code for question 1 is located in [DS-Challenge-Question1.ipynb](https://github.com/seansimkus/Shopify-Challange/blob/main/DS-Challenge-Question1.ipynb)
 
@@ -24,7 +24,7 @@ Code for question 2 is located in [DS-Challenge-Question2.sql](https://github.co
 
 ### A) Think about what could be going wrong with our calculation
 
-Due to the average order value (AOV) being so high it is most likely that our data is being affected by outliers assuming that the calcualtions were done correctly. The AOV being so high is a strong indicator that the calculation was done using the mean which is heavily influenced by outliers.
+Due to the average order value (AOV) being so high, our data is most likely affected by outliers, assuming that the previous user did the calculations correctly. The high AOV is a strong indicator that the average was done using the mean, thus heavily influenced by outliers.
 
 ```python
 mean_order = store_df['order_amount'].mean()
@@ -39,13 +39,13 @@ The mean average of the order is $3145.128 with a mean of 8.7872 items sold
 
 ```
 
-- After performing some calculations on our data we can see that the mean of the `order_amount` is the same as the reported unresonably high AOV.
+  After performing some calculations on the dataset, we can see that the mean of the `order_amount` is the same as the reported unreasonably high AOV.
 
 ---
 
 ### B) What metric would you report for this dataset?
 
-- As mention previously a weakness of using a mean calculation is it can be strongly infulenced by outliers. A better way to evaluate this data would be to take the median of the `order_amount` as it is not as affected nearly as much by the outliers.
+  As mentioned previously, a weakness of using a mean calculation is that outliers can strongly influence it. A better way to evaluate this data would be to take the median of the `order_amount` as it is not as affected nearly as much by the outliers.
 
 ---
 
@@ -62,7 +62,7 @@ The median average of the order is $284.0 with an average of 2.0 items sold
 """
 ```
 
-- The value for the AOV calculated using the median is $284.00.
+  The value for the AOV calculated using the median is $284.00.
 
 ---
 
