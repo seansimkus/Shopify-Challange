@@ -41,11 +41,19 @@ The mean average of the order is $3145.128 with a mean of 8.7872 items sold
 
   After performing some calculations on the dataset, we can see that the mean of the `order_amount` is the same as the reported unreasonably high AOV.
 
+#### Visual of outlier
+
+  ![Scatter Plot](https://github.com/seansimkus/Shopify-Challenge/blob/main/scatterplot.png "Scatter Plot")
+
+  As shown above the data is heavy skew by one data point which is what was throwing off the data
+
 ---
 
 ### B) What metric would you report for this dataset?
 
   As mentioned previously, a weakness of using a mean calculation is that outliers can strongly influence it. A better way to evaluate this data would be to take the median of the `order_amount` as it is not as affected nearly as much by the outliers.
+
+
 
 ---
 
