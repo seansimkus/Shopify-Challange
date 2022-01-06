@@ -1,5 +1,5 @@
 
-# ShopifyDSChallenge
+# Shopify Data Science Challenge
 
 Author: Sean Simkus
 
