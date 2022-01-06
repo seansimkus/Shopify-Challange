@@ -35,7 +35,7 @@ FROM Products INNER JOIN (
 			-- Select German customers
         	SELECT CustomerID FROM Customers
 			WHERE Country = 'Germany')) AS GermanOrders
- 	on OrderDetails.OrderID = GermanOrders.OrderID
+ 	ON OrderDetails.OrderID = GermanOrders.OrderID
 	GROUP BY ProductID
  	ORDER BY AmountOrdered DESC
  	LIMIT 1) AS TopGermanOrder
