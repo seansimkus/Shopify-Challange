@@ -33,7 +33,7 @@ print(f'The median average of the order is ${mean_order} with an average of {mea
 
 """ 
 returns:
-The median average of the order is $3145.128 with an average of 8.7872 items sold
+The mean average of the order is $3145.128 with a mean of 8.7872 items sold
 """
 
 ```
@@ -44,22 +44,22 @@ The median average of the order is $3145.128 with an average of 8.7872 items sol
 
 ### B) What metric would you report for this dataset?
 
+- As mention previously a weakness of using a mean calculation is it can be strongly infulenced by outliers. A better way to evaluate this data would be to take the median of the `order_amount` as it is not as affected nearly as much by the outliers.
+
+---
+
+### C) What is its value?
+
 ```python
 median_order = store_df['order_amount'].median()
 median_items = store_df['total_items'].median()
-print(f'The median average of the order is ${median_order} with an average of {median_items} items sold')
+print(f'The median average of the order is ${median_order} with a median of {median_items} items sold')
 
 """
 returns:
 The median average of the order is $284.0 with an average of 2.0 items sold
 """
 ```
-
-- As mention previously a weakness of using a mean calculation is it can be strongly infulenced by outliers. A better way to evaluate this data would be to take the median of the `order_amount` as it is not as affected nearly as much by the outliers.
-
----
-
-### C) What is its value?
 
 - The value for the AOV calculated using the median is $284.00.
 
@@ -132,6 +132,6 @@ ProductName: Boston Crab Meat
 */
 ```
 
-The most ordered product by customer in Germany was Boston Crab Meat.
+The most ordered product by customers in Germany was Boston Crab Meat.
 
 ---
