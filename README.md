@@ -1,11 +1,10 @@
-
 # Shopify Data Science Challenge
 
 Author: Sean Simkus
 
 Date: Jan 05, 2022
 
-This repository is my submission for Summer 2022 Data Science Intern Challenge.
+This repository is my submission for the Summer 2022 Data Science Intern Challenge.
 
 Code for question 1 is located in [DS-Challenge-Question1.ipynb](https://github.com/seansimkus/Shopify-Challange/blob/main/DS-Challenge-Question1.ipynb)
 
@@ -46,7 +45,7 @@ The mean average of the order is $3145.128 with a mean of 8.7872 items sold
 
   ![Scatter Plot](https://github.com/seansimkus/Shopify-Challenge/blob/main/scatterplot.jpeg "Scatter Plot")
 
-  As mentioned previously, a weakness of using a mean calculation is that outliers can strongly influence it. As we can see from the graph above there is an outlier that it so high it greatly skews the results. A better way to evaluate this data would be to take the median of the `order_amount` as it is not as affected nearly as much by the outliers.
+  As mentioned previously, a weakness of using a mean calculation is that outliers can strongly influence it. As we can see from the graph above, an outlier is so significant that it dramatically skews the results. A better way to evaluate this data would be to take the median of the `order_amount` as it is not as affected nearly as much by the outliers.
 
   ```python
   # Get the median of order_amount
@@ -58,7 +57,7 @@ print(f'The median average of the order is ${median_order} with an median of {me
 
 """
 Returns:
-The median average of the order is $284.0 with an median of 2.0 items sold
+The median average of the order is $284.0 with a median of 2.0 items sold
 """
 ```
 
@@ -94,7 +93,7 @@ The median amount of shoes sold in a day is 2.096788976328182 shoes
 """
 ```
 
-According the code above the median number of shoes sold per day is two. However this metric is not perfect as we know there are many days that sell far greater than two pairs of shoes. I have created a visual below to demonstrate the descprency
+According to the code above, the median number of shoes sold per day is two. However, this metric is not perfect as we know many days sell far more than two pairs of shoes. I have created a visual below to demonstrate the discrepancy
 
 #### Median Shoes Sold Per Day
 
@@ -155,19 +154,19 @@ The last name of the employee with the most orders is Peacock.
 -- Query
 Select ProductName 
 FROM Products INNER JOIN (
-	-- Get the ProductID of the most purchased item
-	Select ProductID, SUM(Quantity) AS AmountOrdered 
-	FROM OrderDetails INNER JOIN (
-		-- Select OrderID from German customers
-		SELECT OrderID FROM Orders 
-        WHERE CustomerID IN (
-			-- Select German customers
-        	SELECT CustomerID FROM Customers
-			WHERE Country = 'Germany')) AS GermanOrders
- 	ON OrderDetails.OrderID = GermanOrders.OrderID
-	GROUP BY ProductID
- 	ORDER BY AmountOrdered DESC
- 	LIMIT 1) AS TopGermanOrder
+  -- Get the ProductID of the most purchased item
+  Select ProductID, SUM(Quantity) AS AmountOrdered 
+  FROM OrderDetails INNER JOIN (
+    -- Select OrderID from German customers
+    SELECT OrderID FROM Orders 
+    WHERE CustomerID IN (
+      -- Select German customers
+      SELECT CustomerID FROM Customers
+      WHERE Country = 'Germany')) AS GermanOrders
+  ON OrderDetails.OrderID = GermanOrders.OrderID
+  GROUP BY ProductID
+  ORDER BY AmountOrdered DESC
+  LIMIT 1) AS TopGermanOrder
 ON Products.ProductID = TopGermanOrder.ProductID;
 /*
 Returns:
