@@ -45,32 +45,45 @@ The mean average of the order is $3145.128 with a mean of 8.7872 items sold
 
   ![Scatter Plot](https://github.com/seansimkus/Shopify-Challenge/blob/main/scatterplot.jpeg "Scatter Plot")
 
-  As shown above the data is heavy skew by one data point which is what was throwing off the data
+  As mentioned previously, a weakness of using a mean calculation is that outliers can strongly influence it. A better way to evaluate this data would be to take the median of the `order_amount` as it is not as affected nearly as much by the outliers.
 
 ---
 
 ### B) What metric would you report for this dataset?
 
-  As mentioned previously, a weakness of using a mean calculation is that outliers can strongly influence it. A better way to evaluate this data would be to take the median of the `order_amount` as it is not as affected nearly as much by the outliers.
-
-
+The metric I would report for this dataset would be the average amount of shoes sold per day. The purpose of this metric is to identify trends in shoe sales and give an idea of the day-to-day performance of the stores. This result could be adapted to focus on each store's average sales per day. However, given the outliers in our data, certain stores perform far better than the others and will need to be investigated to understand the reasoning.
 
 ---
 
 ### C) What is its value?
 
 ```python
-median_order = store_df['order_amount'].median()
-median_items = store_df['total_items'].median()
-print(f'The median average of the order is ${median_order} with a median of {median_items} items sold')
+# Splt the date and time components into own columns
+store_df[['date_created','time_created']] = store_df['created_at'].str.split(' ',1,expand = True)
+
+# Split date compnents into individual columns
+store_df[['year_created','month_created','day_created']] = store_df['date_created'].str.split('-', expand=True)
+
+# Group values by day of the month
+grouped_df = store_df.groupby(['day_created'], as_index=False).mean()
+
+# Calculate the median shoes sold per day
+avg_shoes_per_day = grouped_df['total_items'].median()
+print(f'The median amount of shoes sold in a day is {avg_shoes_per_day} shoes')
 
 """
 returns:
-The median average of the order is $284.0 with an average of 2.0 items sold
+The median amount of shoes sold in a day is 2.096788976328182 shoes
 """
 ```
 
-  The value for the AOV calculated using the median is $284.00.
+According the code above the median number of shoes sold per day is two. However this metric is not perfect as we know there are many days that sell far greater than two pairs of shoes. I have created a visual below to demonstrate the descprency
+
+#### Median Shoes Sold Per Day
+
+[Shoes Per Day](https://github.com/seansimkus/Shopify-Challenge/blob/main/ShoesPerDay.jpeg "Shoes Per Day Bar Chart")
+
+As we can see, there is a drastic swing in the number of shoes sold per day, with most days being around 2 but some days reaching 35 shoes sold. Due to the limited dataset, we cannot determine the exact reason for such a dramatic difference. The data science team will investigate further to understand what effect is causing these discrepancies.
 
 ---
 
