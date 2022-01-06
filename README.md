@@ -41,7 +41,7 @@ The mean average of the order is $3145.128 with a mean of 8.7872 items sold
 
   After performing some calculations on the dataset, we can see that the mean of the `order_amount` is the same as the reported unreasonably high AOV.
 
-#### Visual of outlier
+#### Scatter Plot of order_amount and total_items
 
   ![Scatter Plot](https://github.com/seansimkus/Shopify-Challenge/blob/main/scatterplot.jpeg "Scatter Plot")
 
