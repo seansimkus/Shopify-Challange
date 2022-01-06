@@ -43,7 +43,7 @@ The mean average of the order is $3145.128 with a mean of 8.7872 items sold
 
 #### Visual of outlier
 
-  ![Scatter Plot](https://github.com/seansimkus/Shopify-Challenge/blob/main/scatterplot.png "Scatter Plot")
+  ![Scatter Plot](https://github.com/seansimkus/Shopify-Challenge/blob/main/scatterplot.jpeg "Scatter Plot")
 
   As shown above the data is heavy skew by one data point which is what was throwing off the data
 
