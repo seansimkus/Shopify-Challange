@@ -24,7 +24,7 @@ Code for question 2 is located in [DS-Challenge-Question2.sql](https://github.co
 
 ### A) Think about what could be going wrong with our calculation
 
-Due to the average order value (AOV) being so high, our data is most likely affected by outliers, assuming that the previous user did the calculations correctly. The high AOV is a strong indicator that the average was done using the mean, thus heavily influenced by outliers.
+Due to the average order value (AOV) being so high, our data is most likely affected by outliers, assuming that the previous user completed the calculations correctly. The high AOV is a strong indicator that the average was derived using the mean, thus heavily influenced by outliers.
 
 ```python
 mean_order = store_df['order_amount'].mean()
