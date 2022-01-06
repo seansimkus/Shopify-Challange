@@ -5,7 +5,7 @@ Author: Sean Simkus
 
 Date: Jan 05, 2022
 
-This repository is my submission for Winter 2022 Data Science Intern Challenge.
+This repository is my submission for Summer 2022 Data Science Intern Challenge.
 
 Code for question 1 is located in [DS-Challenge-Question1.ipynb](https://github.com/seansimkus/Shopify-Challange/blob/main/DS-Challenge-Question1.ipynb)
 
