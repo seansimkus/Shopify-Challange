@@ -81,7 +81,7 @@ According the code above the median number of shoes sold per day is two. However
 
 #### Median Shoes Sold Per Day
 
-[Shoes Per Day](https://github.com/seansimkus/Shopify-Challenge/blob/main/ShoesPerDay.jpeg "Shoes Per Day Bar Chart")
+![Shoes Per Day](https://github.com/seansimkus/Shopify-Challenge/blob/main/ShoesPerDay.jpeg "Shoes Per Day Bar Chart")
 
 As we can see, there is a drastic swing in the number of shoes sold per day, with most days being around 2 but some days reaching 35 shoes sold. Due to the limited dataset, we cannot determine the exact reason for such a dramatic difference. The data science team will investigate further to understand what effect is causing these discrepancies.
 
