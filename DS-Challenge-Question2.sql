@@ -12,7 +12,7 @@ ON Orders.ShipperID = SpeedyExpress.ShipperID;
 -- What is the last name of the employee with the most orders?
 -- Query
 SELECT LastName FROM Employees INNER JOIN (
-    SELECT EmployeeID, COUNT(*) AS num_orders FROM [Orders]
+    SELECT EmployeeID, COUNT(EmployeeID) AS num_orders FROM [Orders]
     GROUP BY EmployeeID
     ORDER BY num_orders DESC
     LIMIT 1) AS TopEmployee
@@ -26,19 +26,19 @@ ON Employees.EmployeeID = TopEmployee.EmployeeID;
 -- Query
 Select ProductName 
 FROM Products INNER JOIN (
-	-- Get the ProductID of the most purchased item
-	Select ProductID, SUM(Quantity) AS AmountOrdered 
-	FROM OrderDetails INNER JOIN (
-		-- Select OrderID from German customers
-		SELECT OrderID FROM Orders 
-        WHERE CustomerID IN (
-			-- Select German customers
-        	SELECT CustomerID FROM Customers
-			WHERE Country = 'Germany')) AS GermanOrders
- 	ON OrderDetails.OrderID = GermanOrders.OrderID
-	GROUP BY ProductID
- 	ORDER BY AmountOrdered DESC
- 	LIMIT 1) AS TopGermanOrder
+  -- Get the ProductID of the most purchased item
+  Select ProductID, SUM(Quantity) AS AmountOrdered 
+  FROM OrderDetails INNER JOIN (
+    -- Select OrderID from German customers
+    SELECT OrderID FROM Orders 
+    WHERE CustomerID IN (
+      -- Select German customers
+      SELECT CustomerID FROM Customers
+      WHERE Country = 'Germany')) AS GermanOrders
+  ON OrderDetails.OrderID = GermanOrders.OrderID
+  GROUP BY ProductID
+  ORDER BY AmountOrdered DESC
+  LIMIT 1) AS TopGermanOrder
 ON Products.ProductID = TopGermanOrder.ProductID;
 
 -- Result

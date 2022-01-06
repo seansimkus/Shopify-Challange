@@ -110,7 +110,7 @@ As we can see, there is a drastic swing in the number of shoes sold per day, wit
 ```SQL
 -- Query
 -- How many orders were shipped by Speedy Express in total?
-SELECT COUNT(*) AS Num_Orders FROM Orders INNER JOIN (
+SELECT COUNT(OrderID) AS Num_Orders FROM Orders INNER JOIN (
     SELECT * FROM Shippers
     WHERE ShipperName = 'Speedy Express') AS SpeedyExpress
 ON Orders.ShipperID = SpeedyExpress.ShipperID;
@@ -131,7 +131,7 @@ Speedy Express shipped 54 orders.
 -- What is the last name of the employee with the most orders?
 -- Query
 SELECT LastName FROM Employees INNER JOIN (
-    SELECT EmployeeID, COUNT(*) AS num_orders FROM [Orders]
+    SELECT EmployeeID, COUNT(EmployeeID) AS num_orders FROM [Orders]
     GROUP BY EmployeeID
     ORDER BY num_orders DESC
     LIMIT 1) AS TopEmployee
