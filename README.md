@@ -111,7 +111,7 @@ As we can see, there is a drastic swing in the number of shoes sold per day, wit
 ```SQL
 -- Query
 -- How many orders were shipped by Speedy Express in total?
-SELECT COUNT(*) AS Num_Orders FROM Orders JOIN (
+SELECT COUNT(*) AS Num_Orders FROM Orders INNER JOIN (
     SELECT * FROM Shippers
     WHERE ShipperName = 'Speedy Express') AS SpeedyExpress
 ON Orders.ShipperID = SpeedyExpress.ShipperID;
@@ -131,7 +131,7 @@ Speedy Express shipped 54 orders.
 ```SQL
 -- What is the last name of the employee with the most orders?
 -- Query
-SELECT LastName FROM Employees JOIN (
+SELECT LastName FROM Employees INNER JOIN (
     SELECT EmployeeID, COUNT(*) AS num_orders FROM [Orders]
     GROUP BY EmployeeID
     ORDER BY num_orders DESC
@@ -153,18 +153,22 @@ The last name of the employee with the most orders is Peacock.
 ```SQL
 -- What product was ordered the most by customers in Germany?
 -- Query
-Select ProductName FROM Products JOIN (
- Select ProductID, SUM(Quantity) AS AmountOrdered FROM OrderDetails join (
-  SELECT OrderID FROM Orders 
-         WHERE CustomerID IN (
-          SELECT CustomerID FROM Customers
-   WHERE Country = 'Germany')) AS GermanOrders
- on OrderDetails.OrderID = GermanOrders.OrderID
- GROUP BY ProductID
- ORDER BY AmountOrdered DESC
- LIMIT 1) AS TopGermanOrder
+Select ProductName 
+FROM Products INNER JOIN (
+	-- Get the ProductID of the most purchased item
+	Select ProductID, SUM(Quantity) AS AmountOrdered 
+	FROM OrderDetails INNER JOIN (
+		-- Select OrderID from German customers
+		SELECT OrderID FROM Orders 
+        WHERE CustomerID IN (
+			-- Select German customers
+        	SELECT CustomerID FROM Customers
+			WHERE Country = 'Germany')) AS GermanOrders
+ 	on OrderDetails.OrderID = GermanOrders.OrderID
+	GROUP BY ProductID
+ 	ORDER BY AmountOrdered DESC
+ 	LIMIT 1) AS TopGermanOrder
 ON Products.ProductID = TopGermanOrder.ProductID;
-
 /*
 Returns:
 ProductName: Boston Crab Meat
