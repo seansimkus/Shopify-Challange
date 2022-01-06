@@ -1,51 +1,73 @@
+
 # ShopifyDSChallenge
+
+Author: Sean Simkus
+
+Date: Jan 05, 2022
 
 This is my submission for Winter 2022 Data Science Intern Challenge
 The Question are split into two seperate files.
 
-- [ShopifyDSChallenge](#shopifydschallenge)
-	- [Question 1](#question-1)
-		- [Question A](#question-a)
-		- [Question B](#question-b)
-		- [Question C](#question-c)
-	- [Question 2](#question-2)
-		- [Question A](#question-a-1)
-			- [Result](#result)
-		- [Question B](#question-b-1)
-			- [Result](#result-1)
-		- [Question C](#question-c-1)
-			- [Result](#result-2)
+- [Question 1](#question-1)
+  - [A) Think about what could be going wrong with our calculation](#a-think-about-what-could-be-going-wrong-with-our-calculation)
+  - [B) What metric would you report for this dataset?](#b-what-metric-would-you-report-for-this-dataset)
+  - [C) What is its value?](#c-what-is-its-value)
+- [Question 2](#question-2)
+  - [A) How many orders were shipped by Speedy Express in total?](#a-how-many-orders-were-shipped-by-speedy-express-in-total)
+  - [B) What is the last name of the employee with the most orders?](#b-what-is-the-last-name-of-the-employee-with-the-most-orders)
+  - [C) What product was ordered the most by customers in Germany?](#c-what-product-was-ordered-the-most-by-customers-in-germany)
 
 ## Question 1
 
-Question 1 regarding the sneakershop is located in the file DS-Challenge-Question1.ipynb.  
+Code for Question 1 regarding the sneakershop is located in the file DS-Challenge-Question1.ipynb.  
 
-### Question A
+### A) Think about what could be going wrong with our calculation
 
-Think about what could be going wrong with our calculation.
+Due to the average order value (AOV) being so high it is most likely that our data is being affected by outliers assuming that the calcualtions were done correctly. The AOV being so high is a strong indicator that the calculation was done using the mean which is heavily influenced by outliers.
 
-- After looking at the data there are values that could be considered outliers. Due to this the AOV was most likely calculcated using the mean which is subscepible to outliers.  
+```python
+mean_order = store_df['order_amount'].mean()
+mean_items = store_df['total_items'].mean()
+print(f'The median average of the order is ${mean_order} with an average of {mean_items} items sold')
+
+
+""" 
+returns:
+The median average of the order is $3145.128 with an average of 8.7872 items sold
+"""
+
+```
+
+- After performing some calculations on our data we can see that the mean of the `order_amount` is the same as the reported unresonably high AOV.
 
 ---
-### Question B
 
-What metric would you report for this dataset?
+### B) What metric would you report for this dataset?
 
-- A better way to evaluate this data would be to take the median of the `order_amount` as it is not as affected by the outliers.
+```python
+median_order = store_df['order_amount'].median()
+median_items = store_df['total_items'].median()
+print(f'The median average of the order is ${median_order} with an average of {median_items} items sold')
+
+"""
+returns:
+The median average of the order is $284.0 with an average of 2.0 items sold
+"""
+```
+
+- As mention previously a weakness of using a mean calculation is it can be strongly infulenced by outliers. A better way to evaluate this data would be to take the median of the `order_amount` as it is not as affected nearly as much by the outliers.
 
 ---
-### Question C
 
-What is its value?
+### C) What is its value?
 
 - The value for the AOV calculated using the median is $284.00.
 
 ---
+
 ## Question 2
 
-Question 2 regarding the SQL questions is located the the file DS-Challenge-Question2.sql
-
-### Question A
+### A) How many orders were shipped by Speedy Express in total?
 
 ```SQL
 -- Query
@@ -54,17 +76,18 @@ SELECT COUNT(*) AS Num_Orders FROM Orders JOIN (
     SELECT * FROM Shippers
     WHERE ShipperName = 'Speedy Express') AS SpeedyExpress
 ON Orders.ShipperID = SpeedyExpress.ShipperID;
+
+/*
+Returns:
+Num_Orders: 54
+*/
 ```
 
-#### Result
-
-- Num_Orders: 54
-  
 Speedy Express shipped 54 orders.
 
 ---
 
-### Question B
+### B) What is the last name of the employee with the most orders?
 
 ```SQL
 -- What is the last name of the employee with the most orders?
@@ -75,17 +98,18 @@ SELECT LastName FROM Employees JOIN (
     ORDER BY num_orders DESC
     LIMIT 1) AS TopEmployee
 ON Employees.EmployeeID = TopEmployee.EmployeeID;
+
+/*
+Returns:
+LastName: Peacock
+*/
 ```
 
-#### Result
-
-- LastName: Peacock
-  
 The last name of the employee with the most orders is Peacock.
 
 ---
 
-### Question C
+### C) What product was ordered the most by customers in Germany?
 
 ```SQL
 -- What product was ordered the most by customers in Germany?
@@ -101,11 +125,12 @@ Select ProductName FROM Products JOIN (
  ORDER BY AmountOrdered DESC
  LIMIT 1) AS TopGermanOrder
 ON Products.ProductID = TopGermanOrder.ProductID;
+
+/*
+Returns:
+ProductName: Boston Crab Meat
+*/
 ```
-
-#### Result
-
-- ProductName: Boston Crab Meat
 
 The most ordered product by customer in Germany was Boston Crab Meat.
 
