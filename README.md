@@ -27,17 +27,17 @@ Code for question 2 is located in [DS-Challenge-Question2.sql](https://github.co
 Due to the average order value (AOV) being so high, our data is most likely affected by outliers, assuming that the previous user completed the calculations correctly. The high AOV is a strong indicator that the average was derived using the mean, thus heavily influenced by outliers.
 
 ```python
-#
+# Get the mean of order_amount
 mean_order = store_df['order_amount'].mean()
+# Get the mean of total_items
 mean_items = store_df['total_items'].mean()
-print(f'The median average of the order is ${mean_order} with an average of {mean_items} items sold')
 
+print(f'The mean average of the order is ${mean_order} with an mean of {mean_items} items sold')
 
 """ 
 returns:
 The mean average of the order is $3145.128 with a mean of 8.7872 items sold
 """
-
 ```
 
   After performing some calculations on the dataset, we can see that the mean of the `order_amount` is the same as the reported unreasonably high AOV.
