@@ -43,7 +43,7 @@ The mean average of the order is $3145.128 with a mean of 8.7872 items sold
 
 #### Scatter Plot of order_amount and total_items
 
-  ![Scatter Plot](https://github.com/seansimkus/Shopify-Challenge/blob/main/scatterplot.jpeg "Scatter Plot")
+  ![Scatter Plot](/scatterplot.jpeg "Scatter Plot")
 
   As mentioned previously, a weakness of using a mean calculation is that outliers can strongly influence it. As we can see from the graph above, an outlier is so significant that it dramatically skews the results. A better way to evaluate this data would be to take the median of the `order_amount` as it is not as affected nearly as much by the outliers.
 
@@ -97,7 +97,7 @@ According to the code above, the median number of shoes sold per day is two. How
 
 #### Median Shoes Sold Per Day
 
-![Shoes Per Day](https://github.com/seansimkus/Shopify-Challenge/blob/main/ShoesPerDay.jpeg "Shoes Per Day Bar Chart")
+![Shoes Per Day](ShoesPerDay.jpeg "Shoes Per Day Bar Chart")
 
 As we can see, there is a drastic swing in the number of shoes sold per day, with most days being around 2 but some days reaching 35 shoes sold. Due to the limited dataset, we cannot determine the exact reason for such a dramatic difference. The data science team will investigate further to understand what effect is causing these discrepancies.
 
