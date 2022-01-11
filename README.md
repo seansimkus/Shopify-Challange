@@ -81,7 +81,9 @@ When using this method, the value comes out to $284, which seems more reasonable
 
 ### B) What metric would you report for this dataset?
 
-The metric I would report for this dataset would be the average amount of shoes sold per day. The purpose of this metric is to identify trends in shoe sales and give an idea of the day-to-day performance of the stores. This result could be adapted to focus on each store's average sales per day. However, given the outliers in our data, certain stores perform far better than the others and will need to be investigated to understand the reasoning.
+The metric I would report for this dataset would be the average amount of shoes sold per day. The purpose of this metric is to identify trends in shoe sales and give an idea of the day-to-day performance of the stores. This result could be adapted to focus on each store's average daily sales if the dollar amount is more important than sales volume.
+
+Given the outliers in our data, certain stores perform far better than the others and will need to be investigated to understand the reasoning.
 
 ---
 
