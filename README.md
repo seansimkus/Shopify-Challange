@@ -41,6 +41,20 @@ The mean average of the order is $3145.128 with a mean of 8.7872 items sold
 
   After performing some calculations on the dataset, we can see that the mean of the `order_amount` is the same as the reported unreasonably high AOV.
 
+When taking a closer look, we can see that at the distribution of `order_amount` and `total_items`, there is a concerning standard deviation and a considerable max number for each of the variables.
+
+  ```python
+        order_amount  total_items
+count    5000.000000   5000.00000
+mean     3145.128000      8.78720
+std     41282.539349    116.32032
+min        90.000000      1.00000
+25%       163.000000      1.00000
+50%       284.000000      2.00000
+75%       390.000000      3.00000
+max    704000.000000   2000.00000
+```
+
 #### Scatter Plot of order_amount and total_items
 
   ![Scatter Plot](/scatterplot.jpeg "Scatter Plot")
